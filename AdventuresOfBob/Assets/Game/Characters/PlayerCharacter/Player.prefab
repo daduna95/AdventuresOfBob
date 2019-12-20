@@ -1642,11 +1642,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4819863225899325848}
   - component: {fileID: 4819863225890059526}
-  - component: {fileID: 4819863225853428639}
   - component: {fileID: 4819863225853428634}
   - component: {fileID: 4819863225853428635}
+  - component: {fileID: 3319722335234245966}
+  - component: {fileID: 772593274456534633}
+  - component: {fileID: 5442413188351784075}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1688,20 +1690,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &4819863225853428639
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4819863225899603936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.37540817
-  m_Height: 2.0030997
-  m_Direction: 1
-  m_Center: {x: -0.030056, y: 0.9226111, z: 0}
 --- !u!114 &4819863225853428634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,6 +1724,43 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3319722335234245966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819863225899603936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e496d45d72020a144879ffec93215b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &772593274456534633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819863225899603936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879c4c3eb296a0f4eac97ab3ae391196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 2
+--- !u!114 &5442413188351784075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819863225899603936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9767d7a16c21304d863530a0a3f6d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4819863225899606064
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,45 +1,50 @@
-﻿using System.Collections;
+﻿using RPG.Combat;
+using RPG.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerMoveScript : MonoBehaviour
+namespace RPG.PlayerMove
 {
-    
-    private NavMeshAgent navMesh;
-    void Start()
+    public class PlayerMoveScript : MonoBehaviour, IAction
     {
-        navMesh = GetComponent<NavMeshAgent>();
-    }
 
-   
-    void Update()
-    {
-        if(Input.GetMouseButton(0))
+        private NavMeshAgent navMeshAgent;
+
+        void Start()
         {
-            GetPlayerMove();
+            navMeshAgent = GetComponent<NavMeshAgent>();
         }
-        UpdateAnimation();
-    }
-
-    private void UpdateAnimation()
-    {
-        Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
-        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-        float speed = localVelocity.z;
-        GetComponent<Animator>().SetFloat("ForwardSpeed", speed);
-
-    }
-
-
-    private void GetPlayerMove()
-    {
-        RaycastHit hit;
-        Ray lastRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        bool isHit = Physics.Raycast(lastRay, out hit);
-        if(isHit == true)
+        void Update()
         {
-            GetComponent<NavMeshAgent>().destination = hit.point;
+            UpdateAnimation();
+
+        }
+
+        private void UpdateAnimation()
+        {
+            Vector3 velocity = navMeshAgent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            float speed = localVelocity.z;
+            GetComponent<Animator>().SetFloat("ForwardSpeed", speed);
+
+        }
+
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<ActionScheduler>().StartAction(this);
+            Mover(destination);
+        }
+        public void Mover(Vector3 destination)
+        {
+            navMeshAgent.destination = destination;
+            navMeshAgent.isStopped = false;
+
+        }
+        public void Cancel()
+        {
+            navMeshAgent.isStopped = true;
         }
     }
 }

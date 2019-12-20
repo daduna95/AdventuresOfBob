@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCameraScript : MonoBehaviour
+namespace RPG.Core
 {
-    [SerializeField] Transform Target;
-    
-    void LateUpdate()
+    public class MoveCameraScript : MonoBehaviour
     {
-        transform.position = Target.position; 
+        [SerializeField] Transform Target;
+
+        void LateUpdate()
+        {
+            transform.position = Target.position;
+        }
     }
 }
