@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace RPG.PlayerController
+namespace RPG.Controller
 {
     public class PlayerController : MonoBehaviour
     {
@@ -54,7 +54,7 @@ namespace RPG.PlayerController
                 {
                     continue;
                 }
-                if(Input.GetMouseButtonDown(0))
+                if(Input.GetMouseButton(0))
                 {
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
