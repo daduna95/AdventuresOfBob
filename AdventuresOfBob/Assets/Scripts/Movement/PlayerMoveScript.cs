@@ -9,15 +9,17 @@ namespace RPG.PlayerMove
 {
     public class PlayerMoveScript : MonoBehaviour, IAction
     {
-
+        Health health;
         private NavMeshAgent navMeshAgent;
 
         void Start()
         {
+            health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
         void Update()
         {
+            navMeshAgent.enabled = !health.IsDead();
             UpdateAnimation();
 
         }
